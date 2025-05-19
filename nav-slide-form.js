@@ -90,3 +90,12 @@ document.getElementById("reAfficher").addEventListener("click", function (e) {
   document.getElementById("formulaire").classList.remove("hidden");
   document.getElementById("confirmation").classList.add("hidden");
 });
+
+//------------------------------------------------------------------------
+//nav barre hidden
+const btn = document.getElementById("menu-btn");
+const menu = document.getElementById("mobile-menu");
+
+btn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
