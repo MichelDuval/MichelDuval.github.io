@@ -13,6 +13,16 @@ window.addEventListener("scroll", () => {
   }
 });
 
+//------------------------------------------------------------------------
+//nav barre hidden
+const btn = document.getElementById("menu-btn");
+const menu = document.getElementById("mobile-menu");
+
+btn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
+
+//--------------------------------------------------------------------------
 // Carroussel
 
 const slides = document.querySelectorAll(".testimonial-slide");
@@ -76,6 +86,7 @@ buttons.forEach((btn) => {
 showSlide(currentIndex);
 startAutoSlide();
 
+//-------------------------------------------------------------------------
 //Formulaire
 document.getElementById("formulaire").addEventListener("submit", function (e) {
   e.preventDefault(); // Empêche la page de rafraîchir
@@ -89,13 +100,4 @@ document.getElementById("reAfficher").addEventListener("click", function (e) {
   e.preventDefault(); // Empêche le comportement par défaut du lien
   document.getElementById("formulaire").classList.remove("hidden");
   document.getElementById("confirmation").classList.add("hidden");
-});
-
-//------------------------------------------------------------------------
-//nav barre hidden
-const btn = document.getElementById("menu-btn");
-const menu = document.getElementById("mobile-menu");
-
-btn.addEventListener("click", () => {
-  menu.classList.toggle("hidden");
 });
