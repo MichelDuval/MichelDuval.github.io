@@ -122,3 +122,33 @@ document.getElementById("reAfficher").addEventListener("click", function (e) {
   document.getElementById("formulaire").classList.remove("hidden");
   document.getElementById("confirmation").classList.add("hidden");
 });
+
+// Sélectionne le champ
+const phoneInput = document.querySelector("#phone");
+
+// Initialise intl-tel-input
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "auto",
+  nationalMode: false,
+  separateDialCode: false,
+  autoPlaceholder: "polite",
+  utilsScript:
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+  geoIpLookup: function (callback) {
+    fetch("https://ipapi.co/json")
+      .then((res) => res.json())
+      .then((data) => callback(data.country_code))
+      .catch(() => callback("fr")); // Fallback = France
+  },
+});
+
+// (Facultatif) Bloque la soumission si le numéro est invalide
+const form = document.querySelector("form");
+if (form) {
+  form.addEventListener("submit", function (e) {
+    if (!iti.isValidNumber()) {
+      e.preventDefault();
+      alert("Veuillez entrer un numéro de téléphone valide.");
+    }
+  });
+}

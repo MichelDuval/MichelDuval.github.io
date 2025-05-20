@@ -9,6 +9,8 @@
         <title>Organic Scaling Agency | Marketing de réseaux propulsé organiquement</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="assets/tailwind.css">
+        <!-- intl-tel-input CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css" />
         <script src="smooth.js"></script>
     </head>
     <body>
@@ -247,14 +249,20 @@
                     </div>
                     <div class="max-w-2xl mx-auto">
                         <div class="maDiv opacity-0 translate-y-20 transition-all duration-700 ease-out" style="transition-delay:200ms;">
-                            <form id="formulaire" class="block space-y-6">
+                            <form id="formulaire" action="/ton-endpoint" method="POST" class="block space-y-6">
                                 <div>
                                     <label for="name" class="block text-gray-300 mb-2">Nom</label>
-                                    <input type="text" id="name" class="w-full border border-gray-700 bg-gray-900 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500/50" placeholder="Ton nom" name="name" value="">
+                                    <input type="text" id="name" class="w-full border border-gray-700 bg-gray-900 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500/50" placeholder="Ton nom" name="name" value="" required>
                                 </div>
                                 <div>
                                     <label for="email" class="block text-gray-300 mb-2">Email</label>
-                                    <input type="email" id="email" class="w-full border border-gray-700 bg-gray-900 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500/50" placeholder="ton.email@exemple.com" name="email" value="">
+                                    <input type="email" id="email" class="w-full border border-gray-700 bg-gray-900 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500/50" placeholder="ton.email@exemple.com" name="email" value="" required>
+                                </div>
+                                <div>
+                                    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+                                    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"></script>
+                                    <label for="phone" class="block text-gray-300 mb-2">Numéro de téléphone</label>
+                                    <input type="tel" id="phone" name="phone" inputmode="tel" pattern="^\+[0-9\s\-\(\)]{7,20}$" placeholder="+33 X XX XX XX XX"  class="w-full border border-gray-700 bg-gray-900 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500/50">
                                 </div>
                                 <div>
                                     <label for="message" class="block text-gray-300 mb-2">Message</label>
@@ -316,5 +324,8 @@
             </footer>
         </div>
         <script src="nav-slide-form.js"></script>
+        <!-- intl-tel-input JS -->
+        <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"></script>    
     </body>
 </html>
