@@ -18,8 +18,29 @@ window.addEventListener("scroll", () => {
 const btn = document.getElementById("menu-btn");
 const menu = document.getElementById("mobile-menu");
 
+// btn.addEventListener("click", () => {
+//   menu.classList.toggle("hidden");
+// });
 btn.addEventListener("click", () => {
-  menu.classList.toggle("hidden");
+  if (menu.classList.contains("hidden")) {
+    // Affiche avec animation
+    menu.classList.remove("hidden");
+
+    // Force le reflow pour que la transition s’enclenche
+    void menu.offsetWidth;
+
+    menu.classList.remove("scale-y-0", "translate-y-2");
+    menu.classList.add("scale-y-100", "translate-y-0");
+  } else {
+    // Ferme avec animation
+    menu.classList.remove("scale-y-100", "translate-y-0");
+    menu.classList.add("scale-y-0", "translate-y-2");
+
+    // Cache après animation (300ms)
+    setTimeout(() => {
+      menu.classList.add("hidden");
+    }, 300);
+  }
 });
 
 //--------------------------------------------------------------------------
